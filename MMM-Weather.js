@@ -15,28 +15,7 @@ Module.register("MMM-Weather", {
 
     apiVersion: "2.5",
     apiBase: "https://api.openweathermap.org/data/",
-    weatherEndpoint: "weather",
-
-    iconTable: {
-      "01d": "wi-day-sunny",
-      "02d": "wi-day-cloudy",
-      "03d": "wi-cloudy",
-      "04d": "wi-cloudy-windy",
-      "09d": "wi-showers",
-      "10d": "wi-rain",
-      "11d": "wi-thunderstorm",
-      "13d": "wi-snow",
-      "50d": "wi-fog",
-      "01n": "wi-night-clear",
-      "02n": "wi-night-cloudy",
-      "03n": "wi-night-cloudy",
-      "04n": "wi-night-cloudy",
-      "09n": "wi-night-showers",
-      "10n": "wi-night-rain",
-      "11n": "wi-night-thunderstorm",
-      "13n": "wi-night-snow",
-      "50n": "wi-night-alt-cloudy-windy"
-    }
+    weatherEndpoint: "weather"
   },
   firstEvent: false,
   fetchedLocationName: "",
@@ -78,16 +57,34 @@ Module.register("MMM-Weather", {
     }
 
     var large = document.createElement("div");
-    large.className = "light";
+    large.className = "module_content";
 
-    var weatherIcon = document.createElement("span");
-    weatherIcon.className = "wi weathericon " + this.weatherType;
-    large.appendChild(weatherIcon);
+    var firstLine = document.createElement("div");
+    firstLine.className = "first-line large";
+
+    var secondLine = document.createElement("div");
+    secondLine.className = "second-line medium";
+
+    var weatherIconSource = this.file(
+      "./weather-icons/" + this.weatherType + ".svg"
+    );
+    var weatherIcon = document.createElement("img");
+    weatherIcon.src = weatherIconSource;
+    weatherIcon.className = "weather-icon";
+    firstLine.appendChild(weatherIcon);
 
     var temperature = document.createElement("span");
     temperature.className = "bright";
     temperature.innerHTML = " " + this.temperature + "°";
-    large.appendChild(temperature);
+    firstLine.appendChild(temperature);
+
+    var conditions = document.createElement("span");
+    conditions.className = "dimmed weather-conditions";
+    conditions.innerHTML = this.conditions;
+    secondLine.appendChild(conditions);
+
+    large.appendChild(firstLine);
+    large.appendChild(secondLine);
 
     wrapper.appendChild(large);
 
@@ -169,7 +166,8 @@ Module.register("MMM-Weather", {
     this.humidity = parseFloat(data.main.humidity);
     this.temperature = this.roundValue(data.main.temp);
     this.fetchedLocationName = data.name;
-    this.weatherType = this.config.iconTable[data.weather[0].icon];
+    this.weatherType = data.weather[0].icon;
+    this.conditions = data.weather[0].description;
 
     var now = new Date();
 
