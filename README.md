@@ -40,3 +40,7 @@ then add the module to your MagicMirror's configuration. Here is an example:
     ]
 }
 ```
+
+## Sources / Inspiration
+- [maxbbraun/mirror](https://github.com/maxbbraun/mirror)
+- [MichMich/MagicMirror (default currentweather module)](https://github.com/MichMich/MagicMirror/tree/master/modules/default/currentweather)
