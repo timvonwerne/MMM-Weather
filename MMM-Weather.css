@@ -1,0 +1,27 @@
+.MMM-Weather {
+
+}
+
+.MMM-Weather .module_content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.MMM-Weather .module_content .first-line,
+.MMM-Weather .module_content .second-line {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.MMM-Weather .module_content .first-line span {
+  margin-left: 1.5rem;
+}
+
+.MMM-Weather .module_content .second-line {
+  margin-top: 1rem;
+}
+
+.MMM-Weather .weather-icon {
+  max-height: 65px;
+}
