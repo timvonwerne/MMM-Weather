@@ -3,9 +3,25 @@
   "version": "0.1.0",
   "description": "MagicMirror module that displays the current weather conditions",
   "main": "MMM-Weather.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "license": "MIT",
+  "author": {
+	  "name": "Tim von Werne",
+	  "email": "me@vonwernet.de",
+	  "url": "https://vonwernet.de"
   },
-  "author": "Tim von Werne <me@vonwernet.de>",
-  "license": "MIT"
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {},
+  "keywords": [
+	  "MagicMirror",
+	  "Smart Mirror",
+	  "Weather"
+  ],
+  "repository": {
+	  "type": "git",
+	  "url": "https://github.com/timvonwerne/MMM-Weather"
+  },
+  "bugs": {
+	  "url": "https://github.com/timvonwerne/MMM-Weather/issues"
+  }
 }
