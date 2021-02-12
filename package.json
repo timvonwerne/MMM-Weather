@@ -1,0 +1,11 @@
+{
+  "name": "mmm-weather",
+  "version": "0.1.0",
+  "description": "MagicMirror module that displays the current weather conditions",
+  "main": "MMM-Weather.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tim von Werne <me@vonwernet.de>",
+  "license": "MIT"
+}
